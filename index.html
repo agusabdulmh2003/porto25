@@ -3,668 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Agus Manan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>MN-Web Developer | Interactive Portfolio with Custom Cursor Effects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'studio-gray': '#f8fafc',
+                        'dark-gray': '#1e293b',
+                        'accent-blue': '#3b82f6',
+                        'accent-purple': '#8b5cf6',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'spin-slow': 'spin 8s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+<style>*{cursor:none}body{cursor:none;overflow-x:hidden;transition:background-color 0.3s ease,color 0.3s ease}.dark body{background:linear-gradient(135deg,#0f172a,#1e1b4b)}.cursor-dot{position:fixed;width:8px;height:8px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.15s ease-out,width 0.2s,height 0.2s;box-shadow:0 0 15px rgb(59 130 246 / .6)}.cursor-outline{position:fixed;width:40px;height:40px;border:2px solid rgb(59 130 246 / .6);border-radius:50%;pointer-events:none;z-index:9998;transition:transform 0.25s cubic-bezier(.2,.9,.4,1.1),width 0.3s,height 0.3s,border-color 0.2s;backdrop-filter:blur(2px)}.cursor-dot.hover-effect{transform:scale(2.5);background:#8b5cf6;box-shadow:0 0 25px rgb(139 92 246 / .8)}.cursor-outline.hover-effect{width:60px;height:60px;border-color:#8b5cf6;transform:scale(.8);border-width:3px}.cursor-dot.click-effect{transform:scale(1.5);background:#fff;box-shadow:0 0 30px rgb(59 130 246)}.cursor-outline.click-effect{transform:scale(.6);border-color:#fff}html{scroll-behavior:smooth}.section-padding{padding:5rem 0}@media (max-width:768px){.section-padding{padding:3rem 0}}.project-card{transition:all 0.5s cubic-bezier(.2,.9,.4,1.1);position:relative;overflow:hidden}.project-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgb(59 130 246 / .1),transparent);transition:left 0.6s ease;pointer-events:none}.project-card:hover::before{left:100%}.project-card:hover{transform:translateY(-12px);box-shadow:0 25px 40px -12px rgb(59 130 246 / .25)}.gradient-text{background:linear-gradient(135deg,#3b82f6,#8b5cf6,#ec489a);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:#fff0;animation:gradientShift 4s ease infinite}@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}@keyframes glow{from{box-shadow:0 0 5px #3b82f6,0 0 10px #3b82f6}to{box-shadow:0 0 20px #8b5cf6,0 0 30px #8b5cf6}}#particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}section{position:relative;z-index:1}.magnetic-btn{transition:transform 0.2s ease}.skill-badge{transition:all 0.3s cubic-bezier(.2,.9,.4,1.1)}.skill-badge:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 10px 20px -5px rgb(59 130 246 / .3)}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:10px}.typewriter{overflow:hidden;border-right:3px solid #3b82f6;white-space:nowrap;animation:blink-caret 0.75s step-end infinite;display:inline-block}@keyframes blink-caret{from,to{border-color:#fff0}50%{border-color:#3b82f6}}@media (max-width:768px){.typewriter{white-space:normal;border-right:none;animation:none}}.dark .bg-white\/80{background-color:rgb(15 23 42 / .8)!important}.dark .bg-white{background-color:#1e293b!important}.dark .text-gray-600,.dark .text-gray-700{color:#cbd5e1!important}.dark .border-gray-100{border-color:#334155!important}.dark .bg-gray-100{background-color:#334155!important}.dark .text-dark-gray{color:#f1f5f9!important}.dark .bg-studio-gray{background-color:#0f172a!important}.dark .bg-blue-50,.dark .bg-emerald-50,.dark .bg-purple-50,.dark .bg-amber-50,.dark .bg-sky-50,.dark .bg-green-50{background-color:#1e293b!important}.dark .text-accent-blue{color:#60a5fa!important}.dark .bg-blue-100{background-color:#1e3a8a!important}.dark .border-blue-100{border-color:#1e3a8a!important}.dark .bg-white\/50{background-color:rgb(15 23 42 / .5)!important}</style>
 </head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Porto<span style="color: var(--accent);">folio</span></a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <!-- <li><a href="#skills">Keahlian</a></li> -->
-                    <li><a href="#projects">Proyek</a></li>
-                    <li><a href="#QA">QA</a></li>
-                    <li><a href="#cv">CV</a></li>
-                    <li><a href="https://github.com/agusabdulmh2003" target="_blank">GitHub</a></li>
-
-                    <!-- <li><a href="#contact">Kontak</a></li> -->
-                </ul>
-                <button class="mode-toggle" id="mode-toggle">🌙</button>
-                <button class="menu-toggle" id="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
+<body class="bg-gradient-to-br from-studio-gray to-slate-50 text-dark-gray font-sans antialiased dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800">
+    
+    <canvas id="particles-canvas"></canvas>
+    
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300 dark:bg-slate-900/80 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">MNDEV</div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" data-i18n="nav-home" class="text-gray-600 hover:text-accent-blue font-medium transition-all duration-300 relative group dark:text-gray-300">Home<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 group-hover:w-full"></span></a>
+                        <a href="#projects" data-i18n="nav-portfolio" class="text-gray-600 hover:text-accent-blue font-medium transition-all duration-300 relative group dark:text-gray-300">Portofolio<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 group-hover:w-full"></span></a>
+                        <a href="#experience" data-i18n="nav-experience" class="text-gray-600 hover:text-accent-blue font-medium transition-all duration-300 relative group dark:text-gray-300">Experience<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 group-hover:w-full"></span></a>
+                        <a href="#skills" data-i18n="nav-skills" class="text-gray-600 hover:text-accent-blue font-medium transition-all duration-300 relative group dark:text-gray-300">Skills<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 group-hover:w-full"></span></a>
+                        <a href="#contact" data-i18n="nav-contact" class="text-gray-600 hover:text-accent-blue font-medium transition-all duration-300 relative group dark:text-gray-300">Contact<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 group-hover:w-full"></span></a>
+                    </div>
+                    
+                    <!-- Language Switcher -->
+                    <button id="lang-btn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition">
+                        <i class="fas fa-globe text-accent-blue"></i>
+                        <span id="lang-text" class="ml-1 text-sm font-medium">EN</span>
+                    </button>
+                    
+                    <!-- Dark/Light Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition">
+                        <i id="theme-icon" class="fas fa-moon text-accent-blue"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700"><i class="fas fa-bars text-xl text-dark-gray dark:text-white"></i></button>
+                </div>
+            </div>
         </div>
-    </header>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 dark:bg-slate-900 dark:border-slate-700">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#home" data-i18n="nav-home" class="block text-gray-600 hover:text-accent-blue font-medium dark:text-gray-300">Home</a>
+                <a href="#projects" data-i18n="nav-portfolio" class="block text-gray-600 hover:text-accent-blue font-medium dark:text-gray-300">Portofolio Website</a>
+                <a href="#experience" data-i18n="nav-experience" class="block text-gray-600 hover:text-accent-blue font-medium dark:text-gray-300">Experience</a>
+                <a href="#skills" data-i18n="nav-skills" class="block text-gray-600 hover:text-accent-blue font-medium dark:text-gray-300">Skills</a>
+                <a href="#contact" data-i18n="nav-contact" class="block text-gray-600 hover:text-accent-blue font-medium dark:text-gray-300">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hai, Saya <span style="color: var(--accent);">Agus Abdul Manan Hamas</span></h1>
-                   
-                    <p>Fulld stack dev & Quality Assurance (QA)</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn">Software</a>
-                        <a href="#QA" class="btn"> (QA)</a>
-                        <a href="#cv" class="btn btn-cv"><i class="fas fa-download"></i> CV</a>
-                        <a href="https://github.com/agusabdulmh2003" target="_blank" class="btn btn-cv"><i class="fab fa-github"></i> CV</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="mnimg.png" alt="Profile Image">
-                </div>
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-accent-blue/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-accent-purple/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="w-32 h-32 bg-gradient-to-r from-accent-blue to-accent-purple rounded-2xl mx-auto mb-8 shadow-2xl flex items-center justify-center animate-float">
+                <i class="fas fa-code text-4xl text-white"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight"><span class="gradient-text">Manan</span></h1>
+            <p class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8 max-w-3xl mx-auto dark:text-gray-300"><span class="typewriter" id="typewriter-text">Web Developer | UI/UX Designer | QA Engineer</span></p>
+            <p data-i18n="hero-desc" class="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed dark:text-gray-300">Profesional teknologi dengan pengalaman membangun <strong class="text-accent-blue">10+ website & aplikasi</strong> profesional. Spesialisasi <strong>Quality Assurance</strong>, <strong>Full-stack Development</strong>, dan <strong>UI/UX Design</strong>.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#projects" data-i18n="hero-btn-portfolio" class="bg-accent-blue text-white px-12 py-4 rounded-xl font-semibold text-lg hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 magnetic-btn"><i class="fas fa-globe mr-2"></i>Lihat Portofolio Website</a>
+                <a href="#contact" data-i18n="hero-btn-collab" class="border-2 border-gray-300 text-gray-700 px-12 py-4 rounded-xl font-semibold text-lg hover:bg-accent-blue hover:text-white transition-all duration-300 magnetic-btn dark:border-gray-600 dark:text-gray-300"><i class="fas fa-paper-plane mr-2"></i>Kerjasama Proyek</a>
+            </div>
+            <div class="mt-12 flex justify-center">
+                <a href="https://github.com/agusabdulmh2003" target="_blank" class="inline-flex items-center gap-3 bg-dark-gray/90 backdrop-blur-sm text-white px-6 py-3 rounded-full hover:bg-dark-gray transition-all duration-300 shadow-md hover:shadow-xl group"><i class="fab fa-github text-2xl group-hover:rotate-3 transition-transform"></i><span class="font-semibold">github.com/agusabdulmh2003</span><i class="fas fa-external-link-alt text-xs opacity-70 group-hover:opacity-100"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <h3>\</h3>
-                    <p>Hai! Saya seorang Full satck dev dalam membangun aplikasi web modern dan responsif. Saya memiliki passion dalam menciptakan antarmuka yang intuitif dan pengalaman pengguna yang luar biasa.</p>
-                    <p>Saya memiliki keahlian lain dalam tester aplikasi</p>
-                    <p>Saya lulusan Teknik Informatika dari Universitas AMIKOM Purwokerto, dan sejak itu saya telah belajar dengan berbagai teknologi </p>
-                    <p>Saya percaya bahwa kombinasi desain yang baik dan kode yang bersih adalah kunci untuk menciptakan produk digital yang sukses.</p>
-                    <a href="#cv" class="btn btn-cv animate-on-scroll" style="margin-top: 20px;"><i class="fas fa-download"></i> Download CV Saya</a>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-text">Tahun Pengalaman</div>
-                    </div>
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-number">6</div>
-                        <div class="stat-text">Proyek Selesai</div>
-                    </div>
-                    <!-- <div class="stat-card animate-on-scroll">
-                        <div class="stat-number"></div>
-                        <div class="stat-text">Klien Puas</div>
-                    </div>
-                    <div class="stat-card animate-on-scroll">
-                        <div class="stat-number"></div>
-                        <div class="stat-text">Penghargaan</div> -->
+    <!-- Projects Section FULL -->
+    <section id="projects" class="section-padding bg-white/50 dark:bg-slate-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="text-accent-blue font-semibold text-sm uppercase tracking-wider bg-blue-100 px-4 py-2 rounded-full inline-block mb-4 dark:bg-blue-900/30"><span data-i18n="projects-badge">Karya Digital</span></span>
+            <h2 data-i18n="projects-title" class="text-4xl md:text-5xl font-bold text-dark-gray mb-6 dark:text-white">Website & Aplikasi yang Telah Saya Bangun</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto rounded-full"></div>
+            <p data-i18n="projects-subtitle" class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg dark:text-gray-300">Dari platform komunitas, sistem monitoring IoT, hingga dashboard keuangan interaktif</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1. Lulu Living Official -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://mini.s-shot.ru/1366x768/JPEG/1366/Z100/?https://lululiving.co.id" alt="Lulu Living Website Screenshot" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Lulu+Living'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold"><i class="fas fa-check-circle text-green-400 mr-1"></i> Production</span>
                     </div>
                 </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">Lulu Living Official</h3>
+                    <p data-i18n="project1-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">Website resmi perusahaan properti & living. Terintegrasi dengan sistem ERP untuk manajemen kantor, booking unit, dan informasi layanan.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-blue-50 text-accent-blue px-2 py-1 rounded dark:bg-blue-900/30">Laravel</span>
+                        <span class="text-xs bg-blue-50 text-accent-blue px-2 py-1 rounded dark:bg-blue-900/30">Tailwind</span>
+                        <span class="text-xs bg-blue-50 text-accent-blue px-2 py-1 rounded dark:bg-blue-900/30">MySQL</span>
+                        <span class="text-xs bg-blue-50 text-accent-blue px-2 py-1 rounded dark:bg-blue-900/30">ERP System</span>
+                    </div>
+                    <button onclick="openProjectModal('Lulu Living Official', 'Website resmi dan sistem internal untuk manajemen properti. Fitur: manajemen unit, sistem booking, dashboard admin, integrasi ERP untuk keuangan dan HR, serta sistem tiket dukungan. Pengembangan full-stack dengan Laravel dan testing menggunakan Katalon Studio.', ['Laravel', 'Tailwind CSS', 'MySQL', 'Livewire', 'Katalon Studio', 'ERP Integration'], 'https://lululiving.co.id', 'https://github.com/agusabdulmh2003/lulu-living')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="detail-btn">Detail</span> <i class="fas fa-arrow-right text-xs"></i></button>
+                </div>
+            </div>
+
+            <!-- 2. Thrivian - Komunitas Inspirasi -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://api.microlink.io/?url=https://unique-sprite-2d1bb2.netlify.app&screenshot=true&meta=false&embed=screenshot.url" alt="Thrivian"class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold"><i class="fas fa-globe text-green-400 mr-1"></i> Live Demo</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">Thrivian - Komunitas Inspirasi</h3>
+                    <p data-i18n="project2-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">Platform komunitas untuk dukungan dan motivasi dalam perjalanan mencapai tujuan. Menghubungkan orang dengan minat serupa di berbagai bidang.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-emerald-50 text-emerald-600 px-2 py-1 rounded dark:bg-emerald-900/30 dark:text-emerald-400">React</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-600 px-2 py-1 rounded dark:bg-emerald-900/30 dark:text-emerald-400">Tailwind</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-600 px-2 py-1 rounded dark:bg-emerald-900/30 dark:text-emerald-400">Firebase</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-600 px-2 py-1 rounded dark:bg-emerald-900/30 dark:text-emerald-400">Community Features</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://unique-sprite-2d1bb2.netlify.app/" target="_blank" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="live-btn">Live</span> <i class="fas fa-external-link-alt text-xs"></i></a>
+                        <button onclick="openProjectModal('Thrivian - Komunitas Digital', 'Platform komunitas modern yang memungkinkan pengguna terhubung, berbagi inspirasi, dan berkolaborasi. Fitur: sistem keanggotaan, forum diskusi, event calendar, dan fitur mentorship. Dibangun dengan React dan Tailwind untuk pengalaman yang responsif.', ['React.js', 'Tailwind CSS', 'Firebase Auth', 'Firestore', 'Community Design', 'Responsive Web'], 'https://unique-sprite-2d1bb2.netlify.app/', 'https://github.com/agusabdulmh2003/thrivian-community')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="detail-btn">Detail</span> <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. IT Learning Zone -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://mini.s-shot.ru/1366x768/JPEG/1366/Z100/?https://coruscating-torrone-7ae00a.netlify.app/" alt="IT Learning Zone Screenshot" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/8b5cf6/white?text=IT+Learning+Zone'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold"><i class="fas fa-graduation-cap text-green-400 mr-1"></i> Edu Platform</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">IT Learning Zone</h3>
+                    <p data-i18n="project3-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">Website edukasi teknologi informasi dengan materi pembelajaran interaktif, kuis, dan sertifikasi online untuk perkembangan karir di bidang IT.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded dark:bg-purple-900/30 dark:text-purple-400">Vue.js</span>
+                        <span class="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded dark:bg-purple-900/30 dark:text-purple-400">Laravel</span>
+                        <span class="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded dark:bg-purple-900/30 dark:text-purple-400">SQLite</span>
+                        <span class="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded dark:bg-purple-900/30 dark:text-purple-400">CMS</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://coruscating-torrone-7ae00a.netlify.app/" target="_blank" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="live-btn">Live</span> <i class="fas fa-external-link-alt text-xs"></i></a>
+                        <button onclick="openProjectModal('IT Learning Zone', 'Platform belajar IT modern dengan materi coding, database, dan keamanan siber. Fitur: sistem manajemen kursus, progress tracking, kuis interaktif, forum diskusi, dan sertifikat digital setelah menyelesaikan modul.', ['Vue.js', 'Laravel API', 'Tailwind CSS', 'MySQL', 'Quiz Engine', 'Certificate Generator'], 'https://coruscating-torrone-7ae00a.netlify.app/', 'https://github.com/agusabdulmh2003/it-learning-zone')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="detail-btn">Detail</span> <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Web Kafe - Digital Menu -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://mini.s-shot.ru/1366x768/JPEG/1366/Z100/?https://webkafe.netlify.app/" alt="Web Kafe Screenshot" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f59e0b/white?text=Web+Kafe'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold"><i class="fas fa-store text-green-400 mr-1"></i> Business Profile</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">Web Kafe - Digital Menu</h3>
+                    <p data-i18n="project4-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">Website modern untuk kafe dengan menampilkan menu digital, galeri, informasi acara, dan sistem pemesanan online yang terintegrasi dengan WhatsApp.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-amber-50 text-amber-600 px-2 py-1 rounded dark:bg-amber-900/30 dark:text-amber-400">HTML/CSS</span>
+                        <span class="text-xs bg-amber-50 text-amber-600 px-2 py-1 rounded dark:bg-amber-900/30 dark:text-amber-400">JavaScript</span>
+                        <span class="text-xs bg-amber-50 text-amber-600 px-2 py-1 rounded dark:bg-amber-900/30 dark:text-amber-400">Responsive</span>
+                        <span class="text-xs bg-amber-50 text-amber-600 px-2 py-1 rounded dark:bg-amber-900/30 dark:text-amber-400">WhatsApp API</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://webkafe.netlify.app/" target="_blank" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="live-btn">Live</span> <i class="fas fa-external-link-alt text-xs"></i></a>
+                        <button onclick="openProjectModal('Web Kafe - Digital Menu & Cafe Profile', 'Website company profile untuk bisnis kafe modern. Fitur: menu digital interaktif dengan kategori, galeri foto, informasi jam operasional, peta lokasi, dan sistem pemesanan langsung melalui WhatsApp. Desain responsif untuk semua perangkat.', ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5', 'Google Maps API', 'WhatsApp Integration'], 'https://webkafe.netlify.app/', 'https://github.com/agusabdulmh2003/web-kafe')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="detail-btn">Detail</span> <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. FloodGuard - IoT Flood Monitoring -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://mini.s-shot.ru/1366x768/JPEG/1366/Z100/?https://lively-crumble-3c673a.netlify.app/" alt="FloodGuard IoT Screenshot" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/0ea5e9/white?text=FloodGuard'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold"><i class="fas fa-microchip text-green-400 mr-1"></i> IoT Real-time</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">FloodGuard - IoT Flood Monitoring</h3>
+                    <p data-i18n="project5-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">Sistem monitoring banjir real-time berbasis IoT dengan sensor ultrasonik dan DHT11. Menampilkan ketinggian air, status cuaca, dan peringatan dini banjir.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-sky-50 text-sky-600 px-2 py-1 rounded dark:bg-sky-900/30 dark:text-sky-400">IoT</span>
+                        <span class="text-xs bg-sky-50 text-sky-600 px-2 py-1 rounded dark:bg-sky-900/30 dark:text-sky-400">Arduino</span>
+                        <span class="text-xs bg-sky-50 text-sky-600 px-2 py-1 rounded dark:bg-sky-900/30 dark:text-sky-400">Firebase</span>
+                        <span class="text-xs bg-sky-50 text-sky-600 px-2 py-1 rounded dark:bg-sky-900/30 dark:text-sky-400">Real-time Chart</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://lively-crumble-3c673a.netlify.app/" target="_blank" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="live-btn">Live Demo</span> <i class="fas fa-external-link-alt text-xs"></i></a>
+                        <button onclick="openProjectModal('FloodGuard - IoT Flood Monitoring System', 'Sistem peringatan dini banjir berbasis Internet of Things. Mengintegrasikan sensor ultrasonik (pengukur ketinggian air) dan DHT11 (suhu & kelembaban) dengan dashboard web real-time. Fitur: visualisasi data ketinggian air, status hujan, prediksi cuaca, peringatan suara jika level air kritis, dan notifikasi Telegram.', ['IoT (ESP8266)', 'Arduino C++', 'Firebase Realtime DB', 'Chart.js', 'JavaScript', 'Responsive Dashboard'], 'https://lively-crumble-3c673a.netlify.app/', 'https://github.com/agusabdulmh2003/floodguard-iot')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1"><span data-i18n="detail-btn">Detail</span> <i class="fas fa-arrow-right text-xs"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. FinanceFE - Financial Dashboard -->
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 project-card dark:bg-slate-800 dark:border-slate-700">
+                <div class="relative h-48 overflow-hidden">
+                    <img 
+                        src="https://s.wordpress.com/mshots/v1/https://financefe.netlify.app?w=1200"
+                        alt="FinanceFE"
+                        class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <span class="text-white text-sm font-semibold">
+                            <i class="fas fa-chart-pie text-green-400 mr-1"></i>
+                            Analytics Dashboard
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-dark-gray mb-2 group-hover:text-accent-blue transition dark:text-white">
+                        FinanceFE - Financial Dashboard
+                    </h3>
+                    <p data-i18n="project6-desc" class="text-gray-600 text-sm mb-4 dark:text-gray-300">
+                        Dashboard analitik keuangan modern untuk memantau penjualan, profit, stok produk, dan metrik performa bisnis secara real-time dengan visualisasi data interaktif.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded dark:bg-green-900/30 dark:text-green-400">React</span>
+                        <span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded dark:bg-green-900/30 dark:text-green-400">Chart.js</span>
+                        <span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded dark:bg-green-900/30 dark:text-green-400">Tailwind</span>
+                        <span class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded dark:bg-green-900/30 dark:text-green-400">Finance API</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="https://financefe.netlify.app/" target="_blank" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1">
+                            <span data-i18n="live-btn">Live Demo</span>
+                            <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                        <button onclick="openProjectModal('FinanceFE - Financial Analytics Dashboard', 'Dashboard keuangan modern untuk bisnis e-commerce dan retail.', ['React.js', 'Chart.js', 'Tailwind CSS'], 'https://financefe.netlify.app/', 'https://github.com/agusabdulmh2003/finance-dashboard')" class="text-accent-blue hover:text-blue-700 text-sm font-semibold flex items-center gap-1">
+                            <span data-i18n="detail-btn">Detail</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-gray-500 text-sm dark:text-gray-400">
+            <i class="fas fa-mouse-pointer mr-1"></i> <span data-i18n="projects-click-hint">Klik tombol "Detail" atau "Live Demo" untuk melihat masing-masing proyek</span>
+        </div>
+    </div>
+    </section>
+
+<style>
+    .project-card {
+        transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .project-card:hover {
+        transform: translateY(-8px);
+    }
+</style>
+
+<script>
+// Modal functions (pastikan fungsi ini sudah ada di halaman Anda)
+function openProjectModal(title, description, techArray, liveUrl = null, githubUrl = null) {
+    // Implementasi modal sesuai kebutuhan
+    console.log('Open modal:', title);
+    alert('Modal untuk: ' + title + '\n\n' + description + '\n\nTeknologi: ' + techArray.join(', '));
+}
+</script>
+
+    <!-- Modal -->
+    <div id="projectModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4 transition-all duration-300">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl dark:bg-slate-800">
+            <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex justify-between items-center dark:bg-slate-800 dark:border-slate-700"><h3 id="modalTitle" class="text-2xl font-bold text-dark-gray dark:text-white">Project Title</h3><button onclick="closeProjectModal()" class="text-gray-400 hover:text-gray-600 text-2xl dark:hover:text-gray-300">&times;</button></div>
+            <div class="p-6"><p id="modalDesc" class="text-gray-700 text-lg leading-relaxed mb-6 dark:text-gray-300"></p><div class="mb-5"><h4 class="font-semibold text-accent-blue mb-3"><i class="fas fa-cogs mr-2"></i> <span data-i18n="modal-tech">Teknologi & Tools</span></h4><div id="modalTechStack" class="flex flex-wrap gap-2"></div></div><div class="bg-blue-50 rounded-xl p-4 border border-blue-100 mb-4 dark:bg-blue-900/20 dark:border-blue-800"><div class="flex items-center gap-2 text-accent-blue"><i class="fas fa-chalkboard-user"></i><span class="font-semibold"><span data-i18n="modal-role">Peran Saya</span>:</span></div><p class="text-gray-700 mt-2 dark:text-gray-300"><span data-i18n="modal-role-desc">Full-stack development, quality assurance testing, UI/UX design, database architecture, integration IoT, dan deployment.</span></p></div><div id="modalLinkContainer" class="mt-4 flex flex-col sm:flex-row gap-3 justify-center"></div></div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding bg-gradient-to-b from-white to-studio-gray dark:from-slate-900 dark:to-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 data-i18n="exp-title" class="text-4xl font-bold mb-16 dark:text-white">Experience</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition dark:bg-slate-800"><i class="fas fa-briefcase text-accent-blue mr-2"></i> <strong>IT Intern - Lulu Living</strong><p class="text-gray-600 mt-1 dark:text-gray-300">Website & ERP system development (Laravel, Tailwind, MySQL)</p></div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition dark:bg-slate-800"><i class="fas fa-laptop-code text-accent-blue mr-2"></i> <strong>Full Stack Dev - Hendevane</strong><p class="text-gray-600 mt-1 dark:text-gray-300">Aplikasi LMS & testing automation Katalon</p></div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition dark:bg-slate-800"><i class="fas fa-globe text-accent-blue mr-2"></i> <strong>Web Dev - Cendana.Net</strong><p class="text-gray-600 mt-1 dark:text-gray-300">Maintenance & fitur JavaScript</p></div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition dark:bg-slate-800"><i class="fas fa-database text-accent-blue mr-2"></i> <strong>Data Entry - BBS DigMar</strong><p class="text-gray-600 mt-1 dark:text-gray-300">Manajemen data & backup database</p></div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills" style="background-color: var(--bg-secondary);">
-        <div class="container">
-            <h2 class="section-title">Keahlian Saya</h2>
-            <div class="skills-container">
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML & CSS</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React.js</span>
-                            <span>55%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 55%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Vue.js</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-paint-brush"></i> UI/UX Design</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Figma</span>
-                            <span>92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Adobe XD</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>User Research</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Prototyping</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-tools"></i> Lainnya</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Git & GitHub</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Responsive Design</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>SEO</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Testing & Debugging</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                </div>
+    <section id="skills" class="section-padding bg-white/50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 data-i18n="skills-title" class="text-4xl font-bold mb-12 dark:text-white">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">QA & Automation (Katalon, Selenium)</span>
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">Laravel & PHP</span>
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">React, Vue, JavaScript</span>
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">IoT (ESP8266, Firebase)</span>
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">SQL, MySQL, Firebase</span>
+                <span class="bg-accent-blue/10 text-accent-blue px-6 py-3 rounded-full font-semibold skill-badge dark:bg-accent-blue/20">UI/UX Design, Figma, Tailwind</span>
             </div>
         </div>
     </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Proyek Terbaru</h2>
-            <div class="projects-grid">
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/triv.png" alt="E-commerce Dashboard">
-                        <div class="project-overlay">
-                            <a href="https://unique-sprite-2d1bb2.netlify.app/" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Trivian Comunity</h3>
-                        <p class="project-description">Website Komunitas untuk menghubungkan sesuai hobi .</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Laravel</span>
-                            <span class="project-tag">Bootstrap</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/webiot.png" alt="WebIOT">
-                        <div class="project-overlay">
-                            <a href="https://iot-mn.great-site.net/?i=1" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Monitoring Ruangan</h3>
-                        <p class="project-description">Website Monitoring Ruangan Berbasis Internet OF Things Menampilkan Data Secara Realtime.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java Script</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">C++</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="img/itz.png" alt="ITLearning">
-                        <div class="project-overlay">
-                            <a href="https://coruscating-torrone-7ae00a.netlify.app/" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">IT_Learning Zone</h3>
-                        <p class="project-description">Belajar Programing lebih mudah di mana saja dan kapan saja, Sesuai kebutuhan mu!
-
-</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java Script</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">SupaBase</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/FEfin.png" alt="WebIOT">
-                        <div class="project-overlay">
-                            <a href="https://financefe.netlify.app/" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Finance FE </h3>
-                        <p class="project-description">Frontend web keuangan dengan mengunakan JavaScript, tailwind.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java Script</span>
-                            <span class="project-tag">tailwind</span>
-                            <span class="project-tag">Figma</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/cafe.png" alt="WebIOT">
-                        <div class="project-overlay">
-                            <a href="https://webkafe.netlify.app" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">FE Web Cafe</h3>
-                        <p class="project-description">Website Pemasanan Dikafe.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Java Script</span>
-                            <span class="project-tag">bootstraps</span>
-                            <span class="project-tag">tailwind</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/banjir.png" alt="WebIOT">
-                        <div class="project-overlay">
-                            <a href="https://lively-crumble-3c673a.netlify.app/" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Monitoring Banjir</h3>
-                        <p class="project-description">Website Monitoring Ketingian Air deteksi banjir.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">C++</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- QA Section -->
-     <section id="QA" class="projects" style="background-color: var(--bg-secondary);">
-        <div class="container">
-            <h2 class="section-title">Quality Assurance (QA)</h2>
-            <div class="projects-grid">
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa1.png" alt="Testing Aplikasi E-commerce">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Testing Aplikasi E-commerce</h3>
-                        <p class="project-description">Melakukan pengujian fungsional, pengujian antarmuka pengguna, dan pengujian kinerja pada aplikasi e-commerce untuk memastikan pengalaman pengguna yang optimal.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Manual Testing</span>
-                            <span class="project-tag">Selenium</span>
-                            <span class="project-tag">JIRA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa2.png" alt="Otomatisasi Pengujian Web">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Otomatisasi Pengujian Web</h3>
-                        <p class="project-description">Mengembangkan skrip otomatisasi menggunakan Selenium untuk menguji fungsionalitas utama situs web, mengurangi waktu pengujian manual, dan meningkatkan cakupan pengujian.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Selenium</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Git</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa3.png" alt="Pengujian Aplikasi Mobile">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Pengujian Aplikasi Mobile</h3>
-                        <p class="project-description">Melakukan pengujian kompatibilitas, pengujian performa, dan pengujian usability pada aplikasi mobile untuk memastikan kualitas dan kenyamanan pengguna di berbagai perangkat.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Appium</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa4.png" alt="Pengujian Keamanan Aplikasi">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Pengujian Keamanan Aplikasi</h3>
-                        <p class="project-description">Melakukan pengujian keamanan untuk mengidentifikasi kerentanan dan memastikan perlindungan data pengguna dengan menggunakan tools seperti OWASP ZAP dan Burp Suite.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Security Testing</span>
-                            <span class="project-tag">OWASP</span>
-                            <span class="project-tag">Penetration Testing</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa5.png" alt="Performance Testing">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Performance & Load Testing</h3>
-                        <p class="project-description">Melakukan pengujian performa dan beban menggunakan JMeter untuk memastikan aplikasi dapat menangani traffic tinggi dan tetap responsif dalam kondisi beban berat.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JMeter</span>
-                            <span class="project-tag">Load Testing</span>
-                            <span class="project-tag">Performance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card animate-on-scroll">
-                    <div class="project-image">
-                        <img src="/img/qa6.png" alt="API Testing">
-                        <div class="project-overlay">
-                            <a href="#" target="_blank" class="btn">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">API Testing & Automation</h3>
-                        <p class="project-description">Mengembangkan framework otomatisasi untuk pengujian API menggunakan Postman dan REST Assured, memastikan keandalan dan konsistensi layanan backend.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">API Testing</span>
-                            <span class="project-tag">Postman</span>
-                            <span class="project-tag">REST Assured</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- CV Section -->
-    <section id="cv" class="cv-section">
-        <div class="cv-content">
-            <h2>Download Curriculum Vitae Saya</h2>
-            <p>Dapatkan salinan CV saya yang terbaru untuk melihat kualifikasi, pengalaman, dan keterampilan saya secara lengkap.</p>
-            <a href="#" class="btn" id="download-cv-btn" style="background-color: white; color: var(--accent); font-weight: 700; padding: 15px 40px; font-size: 1.1rem;">
-                <i class="fas fa-download"></i> Download CV 
-            </a>
-        </div>
-    </section>
-
+    
     <!-- Contact Section -->
-    <section id="contact" class="contact" style="background-color: var(--bg-secondary);">
-        <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Mari Bekerja Sama!</h3>
-                    <p>Jika Anda tertarik untuk bekerja sama atau memiliki pertanyaan, jangan ragu untuk menghubungi saya melalui formulir atau informasi kontak di bawah ini.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>iyat6149@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-text">
-                                <h4>Telepon</h4>
-                                <p>+62 85228540244</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-text">
-                                <h4>Lokasi</h4>
-                                <p>Purwokerto, Indonesia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="https://github.com/agusabdulmh2003" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/agusabdulmh2003" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://github.com/agusabdulmh2003" target="_blank"><i class="fab fa-dribbble"></i></a>
-                        <a href="https://github.com/agusabdulmh2003" target="_blank"><i class="fab fa-behance"></i></a>
-                    </div>
-                </div>
-
-                <!-- <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subjek</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Kirim Pesan</button>
-                    </form>
-                </div> -->
+    <section id="contact" class="section-padding bg-dark-gray text-white dark:bg-slate-950">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 data-i18n="contact-title" class="text-4xl font-bold mb-6">Hubungi Saya</h2>
+            <div class="flex flex-wrap justify-center gap-8 mb-8">
+                <a href="mailto:agusabdul2910@gmail.com" class="text-xl hover:text-accent-blue transition"><i class="fas fa-envelope mr-2"></i> agusabdul2910@gmail.com</a>
+                <a href="https://wa.me/6281524666364" class="text-xl hover:text-accent-blue transition"><i class="fab fa-whatsapp mr-2"></i> +62 815 2466 6364</a>
+                <a href="https://github.com/agusabdulmh2003" target="_blank" class="text-xl hover:text-accent-blue transition"><i class="fab fa-github mr-2"></i> GitHub Profile</a>
             </div>
+            <a href="mailto:agusabdul2910@gmail.com" data-i18n="contact-btn" class="bg-accent-blue px-10 py-4 rounded-xl inline-block text-lg font-semibold hover:bg-blue-600 transition">Mulai Proyek Baru →</a>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Portofolio</div>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#skills">Keahlian</a></li>
-                    <li><a href="#projects">Proyek</a></li>
-                    <li><a href="#cv">CV</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
-                <p class="copyright">© 2023 Agus Manan. All Rights Reserved.</p>
-            </div>
-        </div>
+    
+    <footer class="bg-dark-gray text-center py-6 text-gray-400 border-t border-gray-800 dark:bg-slate-950 dark:border-slate-800">
+        <p>© 2026 MN.dev - QA Engineer & Web Developer Portfolio | All projects are live & production ready | <a href="https://github.com/agusabdulmh2003" target="_blank" class="hover:text-accent-blue"><i class="fab fa-github"></i> GitHub</a></p>
     </footer>
 
     <script>
-        // Dark Mode Toggle
-        const modeToggle = document.getElementById('mode-toggle');
-        const body = document.body;
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            modeToggle.textContent = '☀️';
-        } else {
-            modeToggle.textContent = '🌙';
-        }
-        
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                modeToggle.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                modeToggle.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-        
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Scroll Animation
-        const animateElements = document.querySelectorAll('.animate-on-scroll');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        animateElements.forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // In a real application, you would send the form data to a server
-                // For this example, we'll just show an alert
-                alert('Pesan Anda telah terkirim! Saya akan menghubungi Anda segera.');
-                contactForm.reset();
-            });
-        }
-        
-        // Download CV Button Animation
-        const downloadCvBtn = document.getElementById('download-cv-btn');
-        if (downloadCvBtn) {
-            downloadCvBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Animation effect
-                this.classList.add('clicked');
-                setTimeout(() => {
-                    this.classList.remove('clicked');
-                }, 300);
-                
-                // Simulate download
-                alert('CV Anda akan segera diunduh!');
-                
-                // In a real scenario, you would trigger a file download
-                window.location.href = 'CV.pdf';
-            });
-        }
-        
-        // Update year in footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearSpan = document.querySelector('.copyright');
-            if (yearSpan) {
-                const currentYear = new Date().getFullYear();
-                yearSpan.textContent = yearSpan.textContent.replace('2023', currentYear);
-            }
-        });
-    </script>
+        const cursorDot=document.querySelector('.cursor-dot');const cursorOutline=document.querySelector('.cursor-outline');let mouseX=0,mouseY=0,outlineX=0,outlineY=0;document.addEventListener('mousemove',(e)=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.transform=`translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;outlineX+=(mouseX-outlineX)*0.15;outlineY+=(mouseY-outlineY)*0.15;cursorOutline.style.transform=`translate3d(${outlineX - 20}px, ${outlineY - 20}px, 0)`});document.querySelectorAll('a, button, .project-card, .skill-badge').forEach(el=>{el.addEventListener('mouseenter',()=>{cursorDot.classList.add('hover-effect');cursorOutline.classList.add('hover-effect')});el.addEventListener('mouseleave',()=>{cursorDot.classList.remove('hover-effect');cursorOutline.classList.remove('hover-effect')});el.addEventListener('click',()=>{cursorDot.classList.add('click-effect');cursorOutline.classList.add('click-effect');setTimeout(()=>{cursorDot.classList.remove('click-effect');cursorOutline.classList.remove('click-effect')},150)})});const canvas=document.getElementById('particles-canvas');const ctx=canvas.getContext('2d');let particles=[];function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+        class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;this.color=`rgba(59, 130, 246, ${Math.random() * 0.3 + 0.1})`}update(){this.x+=this.speedX;if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;this.y+=this.speedY;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0}draw(){ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill()}}
+        function initParticles(){for(let i=0;i<80;i++)particles.push(new Particle());}
+        function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animateParticles)}
+        window.addEventListener('resize',()=>{resizeCanvas();particles=[];initParticles()});resizeCanvas();initParticles();animateParticles();document.addEventListener('mousemove',(e)=>{particles.forEach(particle=>{const dx=e.clientX-particle.x,dy=e.clientY-particle.y,distance=Math.sqrt(dx*dx+dy*dy);if(distance<100){const angle=Math.atan2(dy,dx),force=(100-distance)/100;particle.x-=Math.cos(angle)*force*2;particle.y-=Math.sin(angle)*force*2}})});const texts=["Web Developer | UI/UX Designer | QA Engineer","Full-stack Developer | Laravel | React","IoT Engineer | Firebase | ESP8266","QA Automation | Katalon | Selenium"];let textIndex=0,charIndex=0,isDeleting=!1;const typewriterElement=document.getElementById('typewriter-text');function typeEffect(){const currentText=texts[textIndex];if(isDeleting){typewriterElement.textContent=currentText.substring(0,charIndex-1);charIndex--}else{typewriterElement.textContent=currentText.substring(0,charIndex+1);charIndex++}
+        if(!isDeleting&&charIndex===currentText.length){isDeleting=!0;setTimeout(typeEffect,2000);return}
+        if(isDeleting&&charIndex===0){isDeleting=!1;textIndex=(textIndex+1)%texts.length;setTimeout(typeEffect,500);return}
+        setTimeout(typeEffect,isDeleting?50:100)}
+        typeEffect();document.querySelectorAll('.magnetic-btn').forEach(btn=>{btn.addEventListener('mousemove',(e)=>{const rect=btn.getBoundingClientRect();const x=e.clientX-rect.left-rect.width/2,y=e.clientY-rect.top-rect.height/2;btn.style.transform=`translate(${x * 0.2}px, ${y * 0.2}px)`});btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0, 0)'})});const mobileBtn=document.getElementById('mobile-menu-btn'),mobileMenu=document.getElementById('mobile-menu');if(mobileBtn)mobileBtn.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth'});if(mobileMenu)mobileMenu.classList.add('hidden');}})});window.openProjectModal=function(title,desc,tech,live,github){document.getElementById('modalTitle').innerText=title;document.getElementById('modalDesc').innerText=desc;const techContainer=document.getElementById('modalTechStack');techContainer.innerHTML='';tech.forEach(t=>{const badge=document.createElement('span');badge.className='bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm dark:bg-slate-700 dark:text-gray-300';badge.innerText=t;techContainer.appendChild(badge)});const linkContainer=document.getElementById('modalLinkContainer');linkContainer.innerHTML='';if(live){const btn=document.createElement('a');btn.href=live;btn.target='_blank';btn.className='inline-flex items-center justify-center bg-accent-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition gap-2';btn.innerHTML='<i class="fas fa-external-link-alt"></i> Kunjungi Website Live';linkContainer.appendChild(btn)}
+        if(github){const btn=document.createElement('a');btn.href=github;btn.target='_blank';btn.className='inline-flex items-center justify-center bg-dark-gray text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition gap-2';btn.innerHTML='<i class="fab fa-github"></i> Lihat Source Code';linkContainer.appendChild(btn)}
+        document.getElementById('projectModal').classList.remove('hidden');document.getElementById('projectModal').style.display='flex'};window.closeProjectModal=function(){const modal=document.getElementById('projectModal');modal.style.display='none';modal.classList.add('hidden')};window.addEventListener('click',(e)=>{if(e.target===document.getElementById('projectModal'))closeProjectModal();});const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:0.1});document.querySelectorAll('section').forEach(s=>{s.style.opacity='0';s.style.transform='translateY(30px)';s.style.transition='0.6s ease-out';observer.observe(s)});const themeToggle=document.getElementById('theme-toggle');const themeIcon=document.getElementById('theme-icon');function setTheme(isDark){if(isDark){document.documentElement.classList.add('dark');localStorage.setItem('theme','dark');themeIcon.classList.remove('fa-moon');themeIcon.classList.add('fa-sun')}else{document.documentElement.classList.remove('dark');localStorage.setItem('theme','light');themeIcon.classList.remove('fa-sun');themeIcon.classList.add('fa-moon')}}
+        const savedTheme=localStorage.getItem('theme');const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;if(savedTheme==='dark'||(!savedTheme&&prefersDark)){setTheme(!0)}else{setTheme(!1)}
+        themeToggle.addEventListener('click',()=>{const isDark=document.documentElement.classList.contains('dark');setTheme(!isDark)});const translations={id:{'nav-home':'Home','nav-portfolio':'Portofolio','nav-experience':'Pengalaman','nav-skills':'Keahlian','nav-contact':'Kontak','hero-desc':'Profesional teknologi dengan pengalaman membangun <strong class="text-accent-blue">10+ website & aplikasi</strong> profesional. Spesialisasi <strong>Quality Assurance</strong>, <strong>Full-stack Development</strong>, dan <strong>UI/UX Design</strong>.','hero-btn-portfolio':'Lihat Portofolio Website','hero-btn-collab':'Kerjasama Proyek','projects-badge':'Karya Digital','projects-title':'Website & Aplikasi yang Telah Saya Bangun','projects-subtitle':'Dari platform komunitas, sistem monitoring IoT, hingga dashboard keuangan interaktif','project1-desc':'Website resmi perusahaan properti & living. Terintegrasi dengan sistem ERP untuk manajemen kantor, booking unit, dan informasi layanan.','project2-desc':'Platform komunitas untuk dukungan dan motivasi dalam perjalanan mencapai tujuan. Menghubungkan orang dengan minat serupa di berbagai bidang.','project3-desc':'Website edukasi teknologi informasi dengan materi pembelajaran interaktif, kuis, dan sertifikasi online untuk perkembangan karir di bidang IT.','project4-desc':'Website modern untuk kafe dengan menampilkan menu digital, galeri, informasi acara, dan sistem pemesanan online yang terintegrasi dengan WhatsApp.','project5-desc':'Sistem monitoring banjir real-time berbasis IoT dengan sensor ultrasonik dan DHT11. Menampilkan ketinggian air, status cuaca, dan peringatan dini banjir.','project6-desc':'Dashboard analitik keuangan modern untuk memantau penjualan, profit, stok produk, dan metrik performa bisnis secara real-time dengan visualisasi data interaktif.','detail-btn':'Detail','live-btn':'Live Demo','projects-click-hint':'Klik tombol "Detail" atau "Live Demo" untuk melihat masing-masing proyek','modal-tech':'Teknologi & Tools','modal-role':'Peran Saya','modal-role-desc':'Full-stack development, quality assurance testing, UI/UX design, database architecture, integration IoT, dan deployment.','exp-title':'Pengalaman Kerja','skills-title':'Keahlian','contact-title':'Hubungi Saya','contact-btn':'Mulai Proyek Baru →'},en:{'nav-home':'Home','nav-portfolio':'Portfolio','nav-experience':'Experience','nav-skills':'Skills','nav-contact':'Contact','hero-desc':'Tech professional with experience building <strong class="text-accent-blue">10+ professional websites & applications</strong>. Specializing in <strong>Quality Assurance</strong>, <strong>Full-stack Development</strong>, and <strong>UI/UX Design</strong>.','hero-btn-portfolio':'View Website Portfolio','hero-btn-collab':'Project Collaboration','projects-badge':'Digital Works','projects-title':'Websites & Applications I\'ve Built','projects-subtitle':'From community platforms, IoT monitoring systems, to interactive financial dashboards','project1-desc':'Official website for property & living company. Integrated with ERP system for office management, unit booking, and service information.','project2-desc':'Community platform for support and motivation in achieving goals. Connects people with similar interests across various fields.','project3-desc':'IT education website with interactive learning materials, quizzes, and online certification for career development in IT.','project4-desc':'Modern website for cafes featuring digital menu, gallery, event information, and online ordering system integrated with WhatsApp.','project5-desc':'IoT-based real-time flood monitoring system with ultrasonic and DHT11 sensors. Displays water level, weather status, and early flood warnings.','project6-desc':'Modern financial analytics dashboard to monitor sales, profit, product stock, and business performance metrics with interactive data visualization.','detail-btn':'Details','live-btn':'Live Demo','projects-click-hint':'Click "Details" or "Live Demo" buttons to view each project','modal-tech':'Technologies & Tools','modal-role':'My Role','modal-role-desc':'Full-stack development, quality assurance testing, UI/UX design, database architecture, IoT integration, and deployment.','exp-title':'Work Experience','skills-title':'Skills','contact-title':'Contact Me','contact-btn':'Start New Project →'}};let currentLang=localStorage.getItem('language')||'id';const langBtn=document.getElementById('lang-btn');const langTextSpan=document.getElementById('lang-text');function setLanguage(lang){currentLang=lang;localStorage.setItem('language',lang);langTextSpan.textContent=lang.toUpperCase();document.querySelectorAll('[data-i18n]').forEach(element=>{const key=element.getAttribute('data-i18n');if(translations[lang]&&translations[lang][key]){if(key==='hero-desc'){element.innerHTML=translations[lang][key]}else{element.textContent=translations[lang][key]}}});if(lang==='en'){texts[0]="Web Developer | UI/UX Designer | QA Engineer";texts[1]="Full-stack Developer | Laravel | React";texts[2]="IoT Engineer | Firebase | ESP8266";texts[3]="QA Automation | Katalon | Selenium"}else{texts[0]="Web Developer | UI/UX Designer | QA Engineer";texts[1]="Full-stack Developer | Laravel | React";texts[2]="IoT Engineer | Firebase | ESP8266";texts[3]="QA Automation | Katalon | Selenium"}
+        textIndex=0;charIndex=0;isDeleting=!1;typeEffect()}
+        langBtn.addEventListener('click',()=>{const newLang=currentLang==='id'?'en':'id';setLanguage(newLang)});setLanguage(currentLang)
+            </script>
 </body>
 </html>
